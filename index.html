@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, maximum-scale=1.0, minimum-scale=1.0">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		
+		<link type="text/css" rel="stylesheet" href="css/login.css" />
+		
+		<script type="text/javascript" charset="utf-8" src="js/jq.mobi.min.js"></script>
+		<script type="text/javascript" charset="utf-8" src="js/color.app.js"></script>
+		<script type="text/javascript" charset="utf-8" src="js/removeDelay.js"></script>
+		<script type="text/javascript">
+		//消除click延时
+		new NoClickDelay(document.getElementById('login'));
+		</script>
+	</head>
+	<body onload="autofill()">
+		<div id="login" class="window-size">  <!-- 需要修改 -->
+			<div id="header">
+				<img id="logo" src="img/logo.png"></img>
+			</div>
+			<div id="login-panel" class="panel">
+				<form>
+					<input id="mobi-username" class="login-input" name="username[login]" placeholder="Email" size="auto" type="text" autocapitalize="off" autocorrect="off">
+					<input id="mobi-password" class="login-input" name="password[login]" placeholder="Password" size="auto" type="password" autocapitalize="off" autocorrect="off">
+					<div id="button-panel">
+						<div id="login-button" class="default" onclick="login()"><span id="loginLabel">登录</span><span class="loginIcon"></span></div>
+					</div>
+						<!--<li><a class="button" onclick="location.href='./set_picture.html';">拍照</a></li>-->
+				</form>
+			</div>
+		</div>
+	</body>
+</html>

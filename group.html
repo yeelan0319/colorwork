@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<title>Groups</title>
+
+<link type="text/css" rel="stylesheet" href="css/iscroll-frame.css">
+<link type="text/css" rel="stylesheet" href="css/group.css">
+<link type="text/css" rel="stylesheet" href="css/message.css">
+<link type="text/css" rel="stylesheet" href="css/new_message.css">
+<link type="text/css" id="device-type" rel="stylesheet" href="css/style-for-mobile.css">
+
+<script type="text/javascript" src="js/iscroll.js"></script>
+<script type="text/javascript" src="js/jq.mobi.min.js"></script>
+<script type="text/javascript" src="js/color.app.js"></script>
+<script type="text/javascript" src="js/group.js"></script>
+<script type="text/javascript" src="js/message.js"></script>
+<script type="text/javascript" src="js/jq.template.js"></script>
+
+<script type="text/javascript">
+var mainScroll;
+
+function main_loaded() {
+	mainScroll = new iScroll('window', {
+		snap: true,
+		momentum: false,
+		hScrollbar: false,
+		bounce: false,
+	 });
+	 //载入头像
+	 document.getElementById('user-avatar').src="http://colorwork.cc/app/avatar_face/image/avatar_"+window.localStorage.getItem('username')+"_120.jpg";
+}
+
+document.addEventListener('DOMContentLoaded', main_loaded, false);
+document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+document.addEventListener('DOMContentLoaded', group_loaded, false);
+document.addEventListener('DOMContentLoaded', function () { setTimeout(msg_loaded, 200); }, false);
+</script>
+
+<script type="text/html" id="message_panel_tmpl" >
+<% for(var i=0;i<item.length;i++){ %>
+		<div class="message-panel">
+			<div class="left-panel">
+				<img class="photo" src="http://colorwork.cc/app/avatar_face/image/avatar_<%=item[i]['Email'] %>_120.jpg"></img>
+			</div>
+			<div class="arrow other">
+				<div class="outline">◆</div>
+				<div class="inner">◆</div>
+			</div>
+			<div class="group main-panel other" id="group-news-<%=item[i]['MessageID'] %>">
+				<div class="message">
+					<span class="author"><strong><%=item[i]['UserName'] %>:</strong></span>
+					<span><%=item[i]['Content']  %></span>
+					<% for(var j=0;j<item[i]['files'].length;j++){ %>
+						<%=item[i]['files'][j] %>
+					<% } %>
+					<div class="date"><%=item[i]['SentDate']%></div>
+				</div>
+				<div class="comments">
+				<% for(var j=0;j<item[i]['comment'].length;j++){ %>
+					<div class="message">
+						<span class="author"><strong><%=item[i]['comment'][j]['UserName'] %> :</strong></span>
+						<span><%=item[i]['comment'][j]['Content'] %></span>
+						<div class="date"><%=item[i]['comment'][j]['SentDate'] %></div>
+					</div>
+				<%}%>
+					<div id="comments-echo-area-<%=item[i]['MessageID'] %>"></div>
+
+					<div class="reply-panel" id="group-news-reply-<%=item[i]['MessageID'] %>">
+						<textarea class="reply" id="group-news-reply-textarea-<%=item[i]['MessageID'] %>" placeholder="回复..." onclick="avoidKeyboard('group-news-reply-textarea-<%=item[i]['MessageID'] %>','group-news-<%=item[i]['MessageID'] %>')"; onkeypress="if(event.keyCode==13){comment_reply('group-news-reply-textarea-<%=item[i]['MessageID'] %>',<%=item[i]['MessageID'] %>)}"></textarea>
+					</div>
+				</div>
+
+			</div>
+		</div>
+<% } %>		
+</script>
+
+<script type="text/html" id="i_message_panel_tmpl" >
+<% for(var i=0;i<item.length;i++){ %>
+		<div class="message-panel">
+			<div class="left-panel">
+				<img class="photo" src="http://colorwork.cc/app/avatar_face/image/avatar_<%=item[i]['Email'] %>_120.jpg"></img>
+			</div>
+			<div class="arrow other">
+				<div class="outline">◆</div>
+				<div class="inner">◆</div>
+			</div>
+			<div class="group main-panel other" id="group-news-<%=item[i]['MessageID'] %>">
+				<div class="message">
+					<span class="author"><strong><%=item[i]['UserName'] %>:</strong></span>
+					<span><%=item[i]['Content']  %></span>
+					<% for(var j=0;j<item[i]['files'].length;j++){ %>
+						<%=item[i]['files'][j] %>
+					<% } %>
+					<div class="date"><%=item[i]['SentDate']%></div>
+				</div>
+			</div>
+		</div>
+<% } %>		
+</script>
+</head>
+<body onload="init()">
+<div id="window" class="window-size">
+	<div id="scroller" class="real-window-size" style="-webkit-transition: -webkit-transform 0ms; -webkit-transform-origin: 0px 0px; -webkit-transform: translate3d(0px, 0px, 0px) scale(1); ">
+		<div id="blank" class="window-size"></div>
+		<div id="msg" class="window-size">
+			<div class="header" id="group-header" onclick="close_new()">
+				<div>{GroupName}</div>
+			</div>
+			<div id="msg-wrapper" class="wrapper">
+				<div class="scroller">
+					<div id="msg-pullDown" class="pullDown">
+						<span id="msg-pullDownLabel" class="pullDownLabel">已经是最新消息...</span>
+					</div>
+					<div id="my-msg" class="hide">
+					</div>
+					<div id="msg-pullUp" class="pullUp hide">
+						<span class="pullUpIcon"></span><span id="msg-pullUpLabel" class="pullUpLabel">Pull up to refresh...</span>
+					</div>
+				</div>
+			</div>
+			<div id="msg-add-botton" class="new-msg" onclick="open_new()"></div>
+			<div id="msg-add" class="min">
+				<div class="wrapper">
+					<textarea id="new-msg-textarea" class="new-message-input" placeholder="share your update..." autocomplete="off" goog_input_chext="chext" oninput="hasContent()"></textarea>
+					<div class="tools-panel">
+						<div class="send botton" id="new-msg-send" onclick="group_message_send();"></div>
+						<div class="attachment botton"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="group" class="window-size float">
+		<a id="personal" href="index.html">
+			<!--<div class="notice">0</div>-->
+			<img class="photo" id="user-avatar" src="img/photo.png">
+		</a>   <!--必须放在外面，因为头像不随团队页面滚动-->
+		<div id="setting" onclick="location.reload('true')">
+			<img id="logo" src="img/logo-vt.png"></img>
+		</div>
+		<div id="group-wrapper" class="wrapper">
+			<div class="scroller">
+				<ul id="group-list" class="thelist">
+					<li id="personal-cloud" class="group-panel"><div id="personal-cloud-name" onclick="slideTo_i_msg()">用户名</div></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>

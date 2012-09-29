@@ -1,0 +1,111 @@
+﻿/*from frame*/
+body{
+	font:13px/22px "微软雅黑";
+}
+
+/*from group*/
+#group  .wrapper{
+	top:32px;
+	bottom:40px;
+}
+
+#group #personal .notice{
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	background-color:red;
+	border:2px solid #fff;
+	font-size:11px;
+	width:16px;height:16px; 
+	line-height:16px;
+	border-radius:20px; 
+	position:absolute;
+	top:3px; right:3px;
+	vertical-align:center;
+	text-align:center;
+	color:white;
+}
+
+#group #personal .photo{
+	width:40px;height:40px;  
+	border-radius:20px; 
+}
+
+.group-panel{
+	font-size:15px;
+}
+
+/*from message*/
+#msg{
+	right:-8px; 
+	top:3px;
+}
+
+.header {
+	height:50px;  
+	line-height:50px; 
+}
+
+.header div {
+	font-size:20px;
+}
+
+#msg .wrapper {
+	top:50px; 
+}
+
+.message-panel .photo{
+	width:30px;height:30px;    /* 需要改变，适应宽度多板式 */
+	border-radius:15px;         /* 需要改变 */
+}
+
+.message-panel .main-panel .message .date{
+	font:12px/20px "微软雅黑"; 
+}
+
+
+.message-panel .main-panel .reply{
+	height:24px;                 
+	font:13px/22px "微软雅黑"; 
+}
+
+.new-msg{
+	padding:5px;   
+	height:20px;          
+	width:20px;
+	background:url(../img/icons-mobile.png) 0 -210px no-repeat;
+}
+
+.pullDown, .pullUp {
+	height:40px;
+	line-height:40px;
+	padding:5px 6px;
+	font-size:14px;
+}
+
+.pullDown .pullDownIcon, .pullUp .pullUpIcon  {
+	width:40px; height:40px;
+	background:url(../img/icons-mobile.png) 0 -265px no-repeat;
+}
+
+.pullDown.loading .pullDownIcon, .pullUp.loading .pullUpIcon {
+	background:url(../img/icons-mobile.png) 0 -305px no-repeat;
+}
+
+/*from new-message*/
+.tools-panel .botton {
+	height:30px;  
+	width:30px;  
+	border-radius:15px; 
+	padding:5px;
+	margin-bottom:8px;  
+	position:relative;
+	top:-5px;
+}
+
+.tools-panel .send{
+	background:url(../img/icons-mobile.png) 0 0px no-repeat;
+}
+
+.tools-panel .attachment{
+	background:url(../img/icons-mobile.png) 0 -105px no-repeat;
+}

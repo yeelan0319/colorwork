@@ -1,0 +1,67 @@
+﻿@charset "utf-8";
+
+#group{
+	background:white;
+}
+
+#group  .wrapper{
+	z-index:1;
+}
+
+#group .scroller {
+	z-index:1;
+	width:88.125%;
+	padding:0 5.9375%;
+}
+
+#group #personal{
+	position:absolute; z-index:2;
+	top:30px;
+	right:5.625%;
+	padding:7px;
+	cursor:pointer;
+}
+
+#group #setting{
+	position:absolute;
+	z-index:2;
+	bottom:40px;
+	right:5.625%;
+	padding-right:7px;
+	height:200px;
+	width:37px;
+}
+
+#group .scroller .thelist{
+	width:78.84%;
+	float:left;
+}
+
+.group-panel{
+	display:table;
+	float:left;
+	text-align:center;
+	vertical-align:middle;
+	background-color:#8DB9D6;
+	color:white;
+	cursor:pointer;
+	word-break:break-all;
+}
+
+#personal-cloud{
+	background-color:rgba(238, 150, 40, 0.8);
+}
+
+.thelist div{
+	display:table-cell;
+	vertical-align:middle;
+	padding:7px;              /* 需要修改? */
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-o-box-sizing:border-box;
+	box-sizing:border-box;
+}
+
+
+
+

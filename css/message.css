@@ -1,0 +1,184 @@
+﻿@charset "utf-8";
+@import url(ui-media.css);
+
+#msg{
+	position:relative;
+	background-color:white;
+	-webkit-border-top-left-radius: 6px;
+	-moz-border-radius-topleft: 6px;
+	border-top-left-radius: 6px;
+	-moz-box-shadow: -1px 1px 3px #ddd;
+	-webkit-box-shadow: -1px 1px 3px #ddd;
+	box-shadow: -1px 1px 3px #ddd;
+}
+
+#msg #msg-wrapper{
+	z-index:101;
+}
+
+#msg .scroller{
+	z-index:101;
+}
+
+.header {
+	position:absolute; z-index:102;
+	top:0; left:0;
+	width:100%;
+	padding:0;
+	text-align:center;
+	background-color:white;
+	-webkit-border-top-left-radius: 6px;
+	-moz-border-radius-topleft: 6px;
+	border-top-left-radius: 6px;
+}
+
+.header div {
+	color:#444;
+}
+
+#msg .scroller {
+	width:100%;
+	padding:0;
+}
+
+/*message-panel*/
+.message-panel{
+	position:relative;
+	width:100%;
+	background:white;
+	float:left;
+	margin-top:20px;  /* 需要改变？保持间距？下面是否保持10px的margin? */
+}
+
+.message-panel div{
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-o-box-sizing:border-box;
+	box-sizing:border-box;
+}
+
+.message-panel .left-panel,.message-panel .right-panel{
+	width:14.42%;
+}
+
+.message-panel .left-panel{
+	padding-left:3.205%;
+	padding-right:1.6025%;
+	float:left;
+}
+
+.message-panel .right-panel{
+	padding-left:1.6025%;
+	padding-right:3.205%;
+	float:right;
+}
+
+.left-panel .photo{
+	float:right;
+}
+
+.right-panel .photo{
+	float:left;
+}
+
+.message-panel .main-panel{
+	margin:0px 5px;
+	border:1px solid #ccc;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+}
+
+.i{
+	width:67.59%;
+}
+
+.group{
+	width:77%;
+}
+
+.message-panel .other{
+	float:left;
+}
+
+.message-panel .my{
+	float:right;
+}
+
+/*all message include comment message*/
+.message-panel .main-panel .message{
+	width:100%;
+	color:black;
+	padding:6px 9px;        /* 需要改变？ */
+	overflow:hidden;
+}
+
+.message-panel .main-panel .pic{
+	width:73.68%;
+}
+
+.message-panel .main-panel .message .date{
+	color:#7f7f7f;
+}
+
+.message-panel .main-panel .comments .message{
+	border-top:1px solid #ddd;
+}
+
+.message-panel .main-panel .reply-panel{
+	width:100%;
+	padding:8px 10px;          /* 需要改变？ */
+}
+
+.message-panel .main-panel .reply{
+	width:100%;
+	vertical-align:middle;
+	resize:none;
+	-webkit-appearance:none;
+	border:1px solid #e4e4e4;
+	overflow:auto;
+	padding:0 0.5em;
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-o-box-sizing:border-box;
+	box-sizing:border-box;
+}
+
+/*add new message*/
+.new-msg{
+	position:absolute;
+	bottom:17px;          /*position set try to overlap with pullUp Icon*/
+	left:11px;
+	z-index:102;
+}
+
+
+.arrow{
+	width:10px;
+	overflow:hidden;
+}
+
+.arrow .outline{
+	position:absolute;
+	top:5px;
+	font-size:16px;
+	color:#ccc;
+}
+
+.arrow .inner{
+	position:absolute;
+	top:5px;
+	font-size:16px;
+	color:#FFF;
+}
+
+.other .inner{
+	margin-left:1px;
+}
+
+.my .inner{
+	/*margin-right:1px;*/
+	margin-left: -1px;
+}

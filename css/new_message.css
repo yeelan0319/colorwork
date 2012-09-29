@@ -1,0 +1,57 @@
+﻿@charset "utf-8";
+
+.min{
+	height:0px;
+}
+
+.max{
+	/* height:430px;     动态修改，见app.js，为height-50 */
+	border-top:1px solid #ddd;
+}
+
+#msg-add{
+	position:absolute;
+	width:100%;
+	bottom:0px;
+	z-index:200;
+	background-color:white;
+	-webkit-transition: All .3s ease;
+	-moz-transition: All .3s ease;
+	-o-transition: All .3s ease;
+}
+
+#msg #msg-add .wrapper {
+	z-index:201;
+	top:2.325%; /* 需要修改? */
+	margin:0 6.41%;
+	width:87.18%;
+	height:40%;	
+}
+
+.new-message-input{
+	position:relative; z-index:201;
+	border:1px solid #929292;
+	width:85%;
+	height:100%;
+	resize:none;
+	padding:10px;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-o-box-sizing:border-box;
+	box-sizing:border-box;
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+	float:left;
+}
+
+.tools-panel {
+	position:relative;z-index:202;
+	width:15%;
+	float:left;
+}
+
+.tools-panel .botton {
+	cursor: pointer;
+	float:right;
+}
+
+
