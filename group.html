@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function () { setTimeout(msg_loade
 					<div id="comments-echo-area-<%=item[i]['MessageID'] %>"></div>
 
 					<div class="reply-panel" id="group-news-reply-<%=item[i]['MessageID'] %>">
-						<textarea class="reply" id="group-news-reply-textarea-<%=item[i]['MessageID'] %>" placeholder="回复..." onclick="avoidKeyboard('group-news-reply-textarea-<%=item[i]['MessageID'] %>','group-news-<%=item[i]['MessageID'] %>')"; onkeypress="if(event.keyCode==13){comment_reply('group-news-reply-textarea-<%=item[i]['MessageID'] %>',<%=item[i]['MessageID'] %>)}"></textarea>
+						<textarea class="reply" id="group-news-reply-textarea-<%=item[i]['MessageID'] %>" placeholder="回复..." onkeypress="if(event.keyCode==13){comment_reply('group-news-reply-textarea-<%=item[i]['MessageID'] %>',<%=item[i]['MessageID'] %>)}"></textarea>
 					</div>
 				</div>
 
