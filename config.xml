@@ -17,7 +17,7 @@
   Yiran Mao
  </author>
 
- <icon src="/img/icon.png" gap:role="default" />
+ <icon src="img/icon.png" />
 
  <preference name="orientation" value="portrait" />
  <preference name="target-device" value="handset" />
