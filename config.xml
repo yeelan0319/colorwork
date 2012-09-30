@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns  = "http://www.w3.org/ns/widgets"
+ xmlns:gap = "http://phonegap.com/ns/1.0"
+ id  = "cc.colorwork"
+ version  = "1.0.0">
+
+ <name>Colorwork</name>
+
+ <description>
+	Colorwork 1.0 Developed by Phonegap
+	-support group view and message stream
+	-support only portrait view
+ </description>
+
+ <author href="http://colorwork.cc"
+  email="yiranmao@gmail.com">
+  Yiran Mao
+ </author>
+
+ <icon src="/img/icon.png" gap:role="default" />
+
+ <preference name="orientation" value="portrait" />
+ <preference name="target-device" value="handset" />
+ <preference name="prerendered-icon" value="true" />
+</widget>
